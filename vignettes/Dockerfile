@@ -1,7 +1,7 @@
 FROM rocker/hadleyverse
 MAINTAINER Ben Marwick <benmarwick@gmail.com>
 RUN apt-get update \
-  && apt-get install -y r-cran-Hmisc r-cran-fpc r-cran-cluster r-cran-Bolstad2 \
+  && apt-get install -y r-cran-Hmisc  r-cran-flexmix r-cran-fpc r-cran-cluster r-cran-Bolstad2 \
   && installGithub.r --deps TRUE \
     mkoohafkan/kfigr \
     vqv/ggbiplot \

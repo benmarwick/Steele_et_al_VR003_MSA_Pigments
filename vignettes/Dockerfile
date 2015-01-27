@@ -7,10 +7,9 @@ RUN apt-get update \
     vqv/ggbiplot \
     rasmusab/bayesian_first_aid \
     benmarwick/Steele_et_al_VR003_MSA_Pigments \
- && git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git
+ && git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git  /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
 
-COPY . /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 WORKDIR /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
 # RUN Rscript -e 'rmarkdown::render("/home/rstudio/Steele_et_al_VR003_MSA_Pigments/Marwick-WII13-ochre.Rmd")'

@@ -1,0 +1,13 @@
+row,Element1,Element1,Quantity,unit,quality,oxide.conversion
+1,Al,Aluminium,14.3,cert,%mass,
+2,Ca,Calcium,0.0759,cert,%mass,
+3,Cr,Chromium,0.0119,cert,%mass,
+4,Fe,Iron,1.18,cert,%mass,
+5,Li,Lithium,0.0215,cert,%mass,
+6,Mg,Magnesium,0.358,cert,%mass,
+7,Mn,Manganese,0.0116,cert,%mass,
+8,K,Potassium,2.81,cert,%mass,
+9,Si,Silicon,26.65,cert,%mass,
+10,Na,Sodium,0.1496,cert,%mass,
+11,Sr,Strontium,0.0189,cert,%mass,
+12,Ti,Titanium,0.809,cert,%mass,

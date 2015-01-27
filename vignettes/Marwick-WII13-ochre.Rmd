@@ -23,6 +23,12 @@ opts_chunk$set(fig.width = 6)
 
 # run all non-plotting functions, takes such a long time... >30 min
 
+# need to setwd to /vignettes if working interactively 
+# assuming you are already in the directory Steele_et_al_VR003_MSA_Pigments
+# which is where you'd be if you opened the .Rproj file
+
+# setwd(paste0(getwd(), "/vignettes"))
+
 df <- read_in()
 
 aucAllSamples <- channels_and_AUC(df$df, df$files)

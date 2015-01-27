@@ -6,7 +6,9 @@ RUN apt-get update \
     mkoohafkan/kfigr \
     vqv/ggbiplot \
     rasmusab/bayesian_first_aid \
-    benmarwick/Steele_et_al_VR003_MSA_Pigments
+    benmarwick/Steele_et_al_VR003_MSA_Pigments \
+ && git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git
+
 
 COPY . /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 WORKDIR /home/rstudio/Steele_et_al_VR003_MSA_Pigments

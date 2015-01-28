@@ -9,6 +9,10 @@ before_install:
 
 install:
   - ./travis-tool.sh install_deps
+   ## For GitHub packages
+  - ./travis-tool.sh install_github mkoohafkan/kfigr
+  - ./travis-tool.sh install_github vqv/ggbiplot
+  - ./travis-tool.sh install_github rasmusab/bayesian_first_aid
 
 script: ./travis-tool.sh run_tests
 

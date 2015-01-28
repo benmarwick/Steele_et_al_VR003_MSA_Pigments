@@ -21,7 +21,11 @@ RUN mkdir /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 # Get repository from github and onto Docker
 RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git   /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
-WORKDIR /home/rstudio/Steele_et_al_VR003_MSA_Pigments/vignettes
+# Set the working directory
+WORKDIR /home/rstudio/Steele_et_al_VR003_MSA_Pigments/
+
+# Open the package in RStudio
+RUN rstudio ~/Steele_et_al_VR003_MSA_Pigments.Rproj
 
 # RUN Rscript -e 'rmarkdown::render("/home/rstudio/Steele_et_al_VR003_MSA_Pigments/Marwick-WII13-ochre.Rmd")'
 

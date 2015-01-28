@@ -25,10 +25,10 @@ RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git 
 RUN cd /home/rstudio/Steele_et_al_VR003_MSA_Pigments \
   && cp -a /home/rstudio/Steele_et_al_VR003_MSA_Pigments/vignettes/. /home/rstudio/ \
   && cd /home/rstudio/ \
-  && rm -r Steele_et_al_VR003_MSA_Pigments vignettes
+  && rm -r Steele_et_al_VR003_MSA_Pigments
 
 # Set the working directory
-WORKDIR /home/rstudio/vingettes/
+WORKDIR /home/rstudio/
 
 # Open the package in RStudio
 # RUN rstudio ~/Steele_et_al_VR003_MSA_Pigments.Rproj

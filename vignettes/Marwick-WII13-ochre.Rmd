@@ -18,9 +18,6 @@ opts_chunk$set(fig.width = 6)
 
 ```{r, run_functions, echo=FALSE, message=FALSE, cache=TRUE, results="hide", warning=FALSE}
 
-# source('Marwick-WII13-ochre.R') # code for all the functions
-# don't need it if this is the vignette for the package SteeleVR003MSAPigments
-
 # run all non-plotting functions, takes such a long time... >30 min
 
 # need to setwd to /vignettes if working interactively 

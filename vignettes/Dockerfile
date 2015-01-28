@@ -1,18 +1,27 @@
+# get the base image, this one has R, RStudio, pandoc, and a bunch of R packages that I use often
 FROM rocker/hadleyverse
+
+# required
 MAINTAINER Ben Marwick <benmarwick@gmail.com>
+
+# install some packages that not in the base image
 RUN apt-get update \
   && apt-get install -y r-cran-Hmisc  r-cran-cluster r-cran-Bolstad2 r-cran-rjags \
+  # install a few packages from GitHub (not on CRAN)
   && installGithub.r --deps TRUE \
     mkoohafkan/kfigr \
     vqv/ggbiplot \
     rasmusab/bayesian_first_aid \
+    # install my package that is the focus of this image
     benmarwick/Steele_et_al_VR003_MSA_Pigments
 
 # make a directory to hold the github repo
-RUN mkdir /home/rstudio/Steele_et_al_VR003_MSA_Pigments
+# RUN mkdir /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
 # Get repository from github and onto Docker
-RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git   /home/rstudio/Steele_et_al_VR003_MSA_Pigments
+RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git
+
+# /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
 WORKDIR /home/rstudio/Steele_et_al_VR003_MSA_Pigments/vignettes
 

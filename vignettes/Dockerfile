@@ -25,7 +25,7 @@ RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git 
 WORKDIR /home/rstudio/Steele_et_al_VR003_MSA_Pigments/
 
 # Open the package in RStudio
-RUN rstudio ~/Steele_et_al_VR003_MSA_Pigments.Rproj
+# RUN rstudio ~/Steele_et_al_VR003_MSA_Pigments.Rproj
 
 # RUN Rscript -e 'rmarkdown::render("/home/rstudio/Steele_et_al_VR003_MSA_Pigments/Marwick-WII13-ochre.Rmd")'
 

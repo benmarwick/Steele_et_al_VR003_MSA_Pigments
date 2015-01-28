@@ -19,9 +19,11 @@ RUN apt-get update \
 RUN mkdir /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
 # Get repository from github and onto Docker
-RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git   /home/rstudio/Steele_et_al_VR003_MSA_Pigments /
-  && cp vignettes ../rstudio /
-  && cd ..
+RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git   /home/rstudio/Steele_et_al_VR003_MSA_Pigments
+
+# Keep only the vignette folder that has the Rmd file and data files
+RUN cp vignettes ../rstudio \
+  && cd .. \
   && rm -r Steele_et_al_VR003_MSA_Pigments
 
 # Set the working directory

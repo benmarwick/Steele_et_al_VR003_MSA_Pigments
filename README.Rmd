@@ -51,14 +51,14 @@ devtools::install_github("benmarwick/Steele_et_al_VR003_MSA_Pigments", build_vig
 Then you can read the manuscript using this line at the R prompt:
 
 ```{r, eval=FALSE}
-vignette("SteeleVR003MSAPigments")
+browseVignettes("SteeleVR003MSAPigments")
 ```
 
 This R package has several depedencies that are listed below, some of which need to be installed manually if using this package from your local R installation. 
 
 #### Run the Docker container
 
-This compendium is also available as a [Docker](https://docs.docker.com/installation) container. The advantage of this format is that it includes this package and all its dependencies, so you don't have to worry about those. OSX & Windows users should launch [`boot2docker`](http://boot2docker.io/) to access the Docker terminal, Linux users can just open any terminal). You can either generate the Docker container yourself using the [Dockerfile](https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments/blob/master/vignettes/Dockerfile) included here, or for a quicker start, pull the image from the [online registry](https://registry.hub.docker.com/u/benmarwick/steeleetalvr003msapigments/) and run the container using this line at the Docker prompt: 
+This compendium is also available as a [Docker](https://docs.docker.com/installation) container. The advantage of this format is that it includes this package and all its dependencies already installed, so you don't have to worry about those. OSX & Windows users should launch [`boot2docker`](http://boot2docker.io/) to access the Docker terminal, Linux users can just open any terminal). You can either generate the Docker container yourself using the [Dockerfile](https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments/blob/master/vignettes/Dockerfile) included here, or for a quicker start, pull the image from the [online registry](https://registry.hub.docker.com/u/benmarwick/steeleetalvr003msapigments/) and run the container using this line at the Docker prompt: 
 
 ```{r eval=FALSE}
 docker run -dp 8787:8787 benmarwick/steeleetalvr003msapigments

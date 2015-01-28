@@ -11,8 +11,8 @@ RUN apt-get update \
 # make a directory to hold the github repo
 RUN mkdir /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
-RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git   /home/rstudio/Steele_et_al_VR003_MSA_Pigments \
-  && cd /home/rstudio/Steele_et_al_VR003_MSA_Pigments/vignettes
+# Get repository from github and onto Docker
+RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git   /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
 WORKDIR /home/rstudio/Steele_et_al_VR003_MSA_Pigments/vignettes
 

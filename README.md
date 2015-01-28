@@ -43,7 +43,7 @@ This R package has several depedencies that are listed below, some of which need
 
 #### Run the Docker container
 
-[![Build Status](https://circleci.com/gh/:owner/:repo.svg?style=shield&circle-token=:circle-token)
+[![Circle CI](https://circleci.com/gh/benmarwick/Steele_et_al_VR003_MSA_Pigments.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/benmarwick/Steele_et_al_VR003_MSA_Pigments)
 
 This compendium is also available as a [Docker](https://docs.docker.com/installation) container. The advantage of this format is that it includes this package and all its dependencies already installed, so you don't have to worry about those. OSX & Windows users should launch [`boot2docker`](http://boot2docker.io/) to access the Docker terminal, Linux users can just open any terminal). You can either generate the Docker container yourself using the [Dockerfile](https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments/blob/master/vignettes/Dockerfile) included here, or for a quicker start, pull the image from the [online registry](https://registry.hub.docker.com/u/benmarwick/steeleetalvr003msapigments/) and run the container using this line at the Docker prompt:
 

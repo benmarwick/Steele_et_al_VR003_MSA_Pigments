@@ -22,7 +22,8 @@ RUN mkdir /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git   /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
 # Keep only the vignette folder that has the Rmd file and data files
-RUN cp vignettes ../rstudio \
+RUN cd /home/rstudio/Steele_et_al_VR003_MSA_Pigments \
+  && cp vignettes ../rstudio \
   && cd .. \
   && rm -r Steele_et_al_VR003_MSA_Pigments
 

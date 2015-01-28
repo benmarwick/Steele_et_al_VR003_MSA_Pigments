@@ -9,7 +9,7 @@ RUN apt-get update \
   && apt-get install -y r-cran-Hmisc  r-cran-cluster r-cran-Bolstad2 r-cran-rjags \
   # install a few packages from GitHub for the most recent versions (or if they're not on CRAN)
   && installGithub.r --deps TRUE \
-    mkoohafkan/kfigr \ # not on CRAN
+    mkoohafkan/kfigr \
     vqv/ggbiplot \
     rasmusab/bayesian_first_aid \
     # install my package that is the focus of this image

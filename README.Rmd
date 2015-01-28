@@ -87,6 +87,46 @@ Data: CC0 http://creativecommons.org/publicdomain/zero/1.0/
 
 ### R Session Information
 
-```{r}
-sessionInfo()
+```{r, eval=FALSE}
+R version 3.1.2 (2014-10-31)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+locale:
+[1] LC_COLLATE=English_United States.1252 
+[2] LC_CTYPE=English_United States.1252   
+[3] LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] splines   grid      stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] SteeleVR003MSAPigments_0.1 cluster_1.15.3            
+ [3] fpc_2.1-9                  ggbiplot_0.55             
+ [5] scales_0.2.4               BayesianFirstAid_0.1      
+ [7] rjags_3-14                 coda_0.16-1               
+ [9] ggplot2_1.0.0              Hmisc_3.14-6              
+[11] Formula_1.1-2              survival_2.37-7           
+[13] lattice_0.20-29            reshape2_1.4.1            
+[15] Bolstad2_1.0-28            dplyr_0.4.0               
+[17] kfigr_1.0.1                knitr_1.8                 
+[19] devtools_1.7.0.9000        stringr_0.6.2             
+[21] plyr_1.8.1                
+
+loaded via a namespace (and not attached):
+ [1] acepack_1.3-3.3     assertthat_0.1      bitops_1.0-6       
+ [4] class_7.3-11        colorspace_1.2-4    DBI_0.3.1          
+ [7] DEoptimR_1.0-2      digest_0.6.8        diptest_0.75-6     
+[10] evaluate_0.5.5      flexmix_2.3-12      foreign_0.8-61     
+[13] formatR_1.0         gtable_0.1.2        htmltools_0.2.6    
+[16] httr_0.6.1          kernlab_0.9-20      latticeExtra_0.6-26
+[19] magrittr_1.5        MASS_7.3-35         mclust_4.4         
+[22] modeltools_0.2-21   munsell_0.4.2       mvtnorm_1.0-2      
+[25] nnet_7.3-8          parallel_3.1.2      prabclus_2.2-5     
+[28] proto_0.3-10        RColorBrewer_1.1-2  Rcpp_0.11.3        
+[31] RCurl_1.95-4.5      rmarkdown_0.5.0.1   robustbase_0.92-2  
+[34] rpart_4.1-8         stats4_3.1.2        tools_3.1.2        
+[37] trimcluster_0.1-2   yaml_2.1.13 
 ```

@@ -532,26 +532,26 @@ dev.off()
 
 
 ## Use the silhouette widths for assessing the best number of clusters
-library(fpc)
-library("cluster")
-asw <- numeric(20)
-for (k in 2:20){
-  asw[k] <- pam(combys13, k) $ silinfo $ avg.width
-}
-k.best <- which.max(asw)
-cat("silhouette-optimal number of clusters:", k.best, "\n")
-
-# K-Means Cluster Analysis
-fit <- kmeans(combys13, k.best) #  cluster solution
-# get cluster means
-# aggregate(combys13,by=list(fit$cluster),FUN=mean)
-# append cluster assignment
-combys13_clus <- data.frame(combys13, fit$cluster)
-# Cluster Plot against 1st 2 principal components
-# vary parameters for most readable graph
-library(cluster)
-clusplot(combys13_clus, fit$cluster, color=FALSE, shade=FALSE,
-         col.clus = "black", labels=2, lines=0, main = "")
+# library(fpc)
+# library("cluster")
+# asw <- numeric(20)
+# for (k in 2:20){
+#   asw[k] <- pam(combys13, k) $ silinfo $ avg.width
+# }
+# k.best <- which.max(asw)
+# cat("silhouette-optimal number of clusters:", k.best, "\n")
+#
+# # K-Means Cluster Analysis
+# fit <- kmeans(combys13, k.best) #  cluster solution
+# # get cluster means
+# # aggregate(combys13,by=list(fit$cluster),FUN=mean)
+# # append cluster assignment
+# combys13_clus <- data.frame(combys13, fit$cluster)
+# # Cluster Plot against 1st 2 principal components
+# # vary parameters for most readable graph
+# library(cluster)
+# clusplot(combys13_clus, fit$cluster, color=FALSE, shade=FALSE,
+#          col.clus = "black", labels=2, lines=0, main = "")
 
 }
 

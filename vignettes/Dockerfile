@@ -4,28 +4,28 @@ FROM rocker/hadleyverse
 # required
 MAINTAINER Ben Marwick <benmarwick@gmail.com>
 
-# install some packages that not in the base image
+# install some packages that not in the base image, these have to be manually identified from my package's Description -> Imports list
 RUN apt-get update \
   && apt-get install -y r-cran-Hmisc  r-cran-cluster r-cran-Bolstad2 r-cran-rjags \
-  # install a few packages from GitHub (not on CRAN)
+  # install a few packages from GitHub for the most recent versions (or if they're not on CRAN)
   && installGithub.r --deps TRUE \
-    mkoohafkan/kfigr \
+    mkoohafkan/kfigr \ # not on CRAN
     vqv/ggbiplot \
     rasmusab/bayesian_first_aid \
     # install my package that is the focus of this image
     benmarwick/Steele_et_al_VR003_MSA_Pigments
 
-# make a directory to hold the github repo
+# make a directory to hold the github repo for my package
 RUN mkdir /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
-# Get repository from github and onto Docker
+# Get my package source files from github and download onto Docker. The built package that we already got above is no good because it doesn't have the vignette directory in the same structure as the package source
 RUN git clone https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments.git   /home/rstudio/Steele_et_al_VR003_MSA_Pigments
 
-# Keep only the vignette folder that has the Rmd file and data files
+# Keep only the vignette folder that has the Rmd file and data files. Because the package has already been loaded, the functions are already present in the environment. So we just want to present to the user the Rmd file and the data so they can knit the Rmd into the document, or work interactively with the code in the Rmd to explore the analysis and the data.
 RUN cd /home/rstudio/Steele_et_al_VR003_MSA_Pigments \
   && cp -a /home/rstudio/Steele_et_al_VR003_MSA_Pigments/vignettes/. /home/rstudio/ \
   && cd /home/rstudio/ \
-  && rm -r Steele_et_al_VR003_MSA_Pigments
+  && rm -r Steele_et_al_VR003_MSA_Pigments vignettes
 
 # Set the working directory
 WORKDIR /home/rstudio/vingettes/

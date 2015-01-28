@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^vignettes/Marwick-WII13-ochre_cache
 ^\.travis\.yml$
+^README\.Rmd$
+^README-.*\.png$

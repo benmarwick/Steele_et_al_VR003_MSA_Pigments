@@ -5,8 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t benmarwick/steeleetalvr003msapigments https://raw.githubusercontent.com/benmarwick/Steele_et_al_VR003_MSA_Pigments/master/vignettes/Dockerfile .
-
+    - docker build -t benmarwick/steeleetalvr003msapigments https://raw.githubusercontent.com/benmarwick/Steele_et_al_VR003_MSA_Pigments/master/vignettes/Dockerfile
 test:
   override:
     - docker run -d -p 8787:8787 benmarwick/steeleetalvr003msapigments; sleep 10

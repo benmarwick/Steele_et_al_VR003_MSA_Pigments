@@ -16,7 +16,7 @@ library("SteeleVR003MSAPigments")
 opts_chunk$set(fig.width = 6)
 ```
 
-```{r, run_functions, echo=FALSE, message=FALSE, cache=TRUE, results="hide", warning=FALSE}
+```{r, run_functions, echo=FALSE, message=FALSE, cache=TRUE, results="hide", warning=FALSE, include = FALSE}
 
 # run all non-plotting functions, takes such a long time... >30 min
 
@@ -35,6 +35,8 @@ combys9 <- subset_5_runs(aucAllSamples$aucAllSamples, aucAllSamples$elementList)
 combys9 <- corr_with_Fe(combys9)
 
 combys12 <- calibration(combys9$combys9, combys9$remaining)
+
+plots(combys12)
 
 ochre_data <- ochre_data()
 

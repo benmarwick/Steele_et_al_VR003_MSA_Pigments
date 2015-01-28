@@ -481,18 +481,18 @@ plots <- function(combys12) {
 things_to_remove <- c("[0-9]+", "\\.")
 combys12$plotsymbol <- gsub(paste(things_to_remove, collapse = "|"), "", combys12$Sample.Loc)
 
-ggplot(combys12, aes(Ti, Co)) +
-  geom_text(aes(label = Sample.Loc)) +
-  theme_minimal() +
-  xlab(expression(log[10]*"[Ti/Fe]")) +
-  ylab(expression(log[10]*"[Co/Fe]"))
-
-
-ggplot(combys12, aes(Ti, Co)) +
-  geom_text(aes(label = plotsymbol)) +
-  theme_minimal() +
-  xlab(expression(log[10]*"[Ti/Fe]")) +
-  ylab(expression(log[10]*"[Co/Fe]"))
+# ggplot(combys12, aes(Ti, Co)) +
+#   geom_text(aes(label = Sample.Loc)) +
+#   theme_minimal() +
+#   xlab(expression(log[10]*"[Ti/Fe]")) +
+#   ylab(expression(log[10]*"[Co/Fe]"))
+#
+#
+# ggplot(combys12, aes(Ti, Co)) +
+#   geom_text(aes(label = plotsymbol)) +
+#   theme_minimal() +
+#   xlab(expression(log[10]*"[Ti/Fe]")) +
+#   ylab(expression(log[10]*"[Co/Fe]"))
 
 
 # quick PCA
@@ -505,7 +505,7 @@ pca1 <- prcomp(combys13, scale=TRUE)
 # combys13 <- combys13[rownames(combys13) != 'VR3.02', ]
 pca1 <- prcomp(combys13, scale=TRUE)
 
-biplot(pca1)
+# biplot(pca1)
 
 # More fancy
 library(ggbiplot)

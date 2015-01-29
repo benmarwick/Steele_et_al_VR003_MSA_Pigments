@@ -565,11 +565,11 @@ dev.off()
 #' @export
 #' @examples
 #' \dontrun{
-#' ochre_data <- ochre_data()
+#' ochre_data <- get_ochre_data()
 #' }
 
-ochre_data <- function() {
-  ochre <- read.csv("data/ochre.csv")[1:79,]
+get_ochre_data <- function() {
+  ochre <- read.csv("data/ochre.csv", stringsAsFactors = FALSE)[1:79,]
   ochre <- ochre[ochre$weight != "NA" & ochre$site != "NA" & ochre$site != "", ]
 }
 
@@ -711,5 +711,40 @@ mag_sus_corr <- with(ochre_data, bayes.cor.test(FD, LF.mass.specific.susceptibil
 HDI_corr <- mag_sus_corr$stats[1,5:6]
 
 return(HDI_corr)
+}
+
+############################################################
+#' Table summarising ochre data
+#'
+#'
+#'
+#' @export
+#' @examples
+#' \dontrun{
+#' the_ochre_table <- ochre_table(ochre_data)
+#' }
+
+ochre_table <- function(ochre_data) {
+# table summarising ochre data
+the_ochre_table <- ochre_data %>%
+                    select(Loc, sq, layer.bag, weight, length, width, thickness,
+                           LF.mass.specific.susceptibility,
+                           Percentage.frequency.dependent.susceptibility..Îºfd..or.Ï.fd..)
+
+# %FD should be numeric also
+the_ochre_table$Percentage.frequency.dependent.susceptibility..Îºfd..or.Ï.fd.. <- as.numeric(the_ochre_table$Percentage.frequency.dependent.susceptibility..Îºfd..or.Ï.fd..)
+
+# do some rounding (http://stackoverflow.com/a/21328269/1036500)
+roundIfNumeric <- function(x, n=1)if(is.numeric(x)) round(x, n) else x
+
+the_ochre_table <- as.data.frame(
+                    lapply(the_ochre_table, roundIfNumeric, 2)
+                    )
+# add Fe, Co and Ti %mass columns
+
+### run all the code...
+
+
+
 }
 

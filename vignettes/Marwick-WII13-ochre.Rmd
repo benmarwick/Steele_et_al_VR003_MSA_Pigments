@@ -38,7 +38,7 @@ combys12 <- calibration(combys9$combys9, combys9$remaining)
 
 plots(combys12)
 
-ochre_data <- ochre_data()
+ochre_data <- get_ochre_data()
 
 HDI_corr <- mag_sus_corr(ochre_data)
 
@@ -129,6 +129,11 @@ Popelka-Filcoff, R.S., Miksa, E.J., Robertson, J.D., Glascock, M.D., Wallace, H.
 R Development Core Team. (2014). R: A Language and Environment for Statistical Computing. Retrieved from http://www.R-project.org/
 
 Wadley, L. (2005). Ochre crayons or waste products? Replications compared with MSA "crayons" from Sibudu Cave, South Africa. Before Farming, 2005(3), 1-12. doi:10.3828/bfarm.2005.3.1
+
+```{r}
+
+
+```
 
 
 

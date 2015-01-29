@@ -30,6 +30,14 @@ RUN cd /home/rstudio/Steele_et_al_VR003_MSA_Pigments \
 # Set the working directory
 WORKDIR /home/rstudio/
 
+# re-submit the image the the docker registry after passing the tests
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push circleci/elasticsearch
+
 # Open the package in RStudio
 # RUN rstudio ~/Steele_et_al_VR003_MSA_Pigments.Rproj
 

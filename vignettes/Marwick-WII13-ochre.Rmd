@@ -36,7 +36,7 @@ combys9 <- corr_with_Fe(combys9)
 
 combys12 <- calibration(combys9$combys9, combys9$remaining)
 
-plots(combys12)
+plots(combys12$combys12)
 
 ochre_data <- get_ochre_data()
 
@@ -131,8 +131,8 @@ R Development Core Team. (2014). R: A Language and Environment for Statistical C
 Wadley, L. (2005). Ochre crayons or waste products? Replications compared with MSA "crayons" from Sibudu Cave, South Africa. Before Farming, 2005(3), 1-12. doi:10.3828/bfarm.2005.3.1
 
 ```{r}
-
-
+# make the summary data table
+the_ochre_table <- ochre_table(ochre_data, combys12$combys11)
 ```
 
 

@@ -451,6 +451,8 @@ unique(combys11$Sample.Loc)
 
 # combys11 <- data.frame(Reduce(rbind, apply(combys10, 1, function(i) i * standard_multi)))
 
+
+
 # express elments as log10 of ratio to FeOx in each sample
 combys11a <- combys11[, names(combys11) != 'Sample.Loc']
 combys12 <- log10(combys11a[, names(combys11a) != 'Fe'] / combys11a$Fe)
@@ -458,7 +460,7 @@ combys12$Sample.Loc <- combys9$Sample.Loc[!combys9$Sample.Loc %in% c("brickn679"
 rownames(combys12) <- combys12$Sample.Loc
 head(combys12)
 
-return(combys12)
+return(list(combys11 = combys11, combys12 = combys12))
 }
 
 
@@ -713,35 +715,79 @@ HDI_corr <- mag_sus_corr$stats[1,5:6]
 return(HDI_corr)
 }
 
-# ############################################################
-# #' Table summarising ochre data
-# #'
-# #'
-# #'
-# #' @export
-# #' @examples
-# #' \dontrun{
-# #' the_ochre_table <- ochre_table(ochre_data)
-# #' }
-#
-# ochre_table <- function(ochre_data) {
-# # table summarising ochre data
-# the_ochre_table <- ochre_data %>%
-#                     select(Loc, sq, layer.bag, weight, length, width, thickness,
-#                            LF.mass.specific.susceptibility,
-#                            Percentage.frequency.dependent.susceptibility..Îºfd..or.Ï.fd..)
-#
-# # %FD should be numeric also
-# the_ochre_table$Percentage.frequency.dependent.susceptibility..Îºfd..or.Ï.fd.. <- as.numeric(the_ochre_table$Percentage.frequency.dependent.susceptibility..Îºfd..or.Ï.fd..)
-#
-# # do some rounding (http://stackoverflow.com/a/21328269/1036500)
-# roundIfNumeric <- function(x, n=1)if(is.numeric(x)) round(x, n) else x
-#
-# the_ochre_table <- as.data.frame(
-#                     lapply(the_ochre_table, roundIfNumeric, 2)
-#                     )
-# # add Fe, Co and Ti %mass columns
-#
-# ### run all the code...
-# }
+############################################################
+#' Table summarising ochre data
+#'
+#'
+#'
+#' @export
+#' @examples
+#' \dontrun{
+#' the_ochre_table <- ochre_table(ochre_data, combys12$combys11)
+#' }
+
+ochre_table <- function(ochre_data, pXRF_data) {
+
+# dplyr doesn't seem to do partial matching
+ochre_data$Percentage.frequency.dependent. <- ochre_data$Percentage.frequency.dependent.
+
+# table summarising ochre data
+the_ochre_table <- ochre_data %>%
+                    mutate(Sample.Loc = paste0(site, X.1)) %>%
+                    select(Sample.Loc, Loc, sq, layer.bag, weight, length, width, thickness,
+                           LF.mass.specific.susceptibility,
+                           Percentage.frequency.dependent.)
+
+# tweak the sample ID for matching with pXRF data
+the_ochre_table$Sample.Loc <- gsub("KKH1", "KKH", the_ochre_table$Sample.Loc)
+the_ochre_table$Sample.Loc <- gsub("VR32", "VR3", the_ochre_table$Sample.Loc)
+the_ochre_table$Sample.Loc <- gsub("PL83", "PL8", the_ochre_table$Sample.Loc)
+the_ochre_table$Sample.Loc <- gsub("KFR4", "KFR", the_ochre_table$Sample.Loc)
+the_ochre_table$Sample.Loc <- gsub("KRACH", "KRA", the_ochre_table$Sample.Loc)
+
+pXRF_data$Sample.Loc <- gsub("KransvleiCH", "KRA", pXRF_data$Sample.Loc )
+pXRF_data$Sample.Loc <- gsub("Dam8", "DAM", pXRF_data$Sample.Loc )
+pXRF_data$Sample.Loc <- gsub("augsberg", "AUG", pXRF_data$Sample.Loc )
+pXRF_data$Sample.Loc <- gsub("dehangen", "DEH", pXRF_data$Sample.Loc )
+pXRF_data$Sample.Loc <- gsub("kleinkliphuis", "KLK", pXRF_data$Sample.Loc )
+
+
+# %FD should be numeric also
+the_ochre_table$Percentage.frequency.dependent. <- as.numeric(the_ochre_table$Percentage.frequency.dependent.)
+
+
+### change this varible name in several places....
+
+# do some rounding (http://stackoverflow.com/a/21328269/1036500)
+roundIfNumeric <- function(x, n=1)if(is.numeric(x)) round(x, n) else x
+
+the_ochre_table <- as.data.frame(
+                    lapply(the_ochre_table, roundIfNumeric, 2)
+                    )
+
+pXRF_data <- as.data.frame(
+                    lapply(pXRF_data, roundIfNumeric, 4)
+                      )
+
+# add Fe, Co and Ti %mass columns
+the_ochre_table_and_pxrf <- merge(the_ochre_table, pXRF_data)
+
+names(the_ochre_table_and_pxrf) <- c("Sample Code",
+                                     "Location",
+                                     "square",
+                                     "layer and bag",
+                                     "mass (g)",
+                                     "length (mm)",
+                                     "width (mm)",
+                                     "thickness (mm)" ,
+                                     "Low freq. mass specific susceptibility (SI units)",
+                                     "Freq. dependency (%)",
+                                     "Fe (oxide % mass)",
+                                     "Ti (oxide % mass)",
+                                     "Co (oxide % mass)")
+
+write.csv(file = "data/ochre_data_summary_table.csv", the_ochre_table_and_pxrf)
+
+
+}
 

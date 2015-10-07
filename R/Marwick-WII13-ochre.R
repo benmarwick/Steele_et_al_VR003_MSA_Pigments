@@ -591,7 +591,8 @@ ochre_mass <- function(ochre_data) {
 
 ggplot(ochre_data, aes(x=site, y=weight, colour=context)) +
   geom_boxplot() +
-  theme_minimal()
+  theme_minimal() +
+  ylab("Mass (g)")
 }
 
 

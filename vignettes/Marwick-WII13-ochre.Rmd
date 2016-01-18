@@ -49,7 +49,16 @@ surface <- surface(ochre_data)
 
 We found pigments throughout the Main Area  sequence, and a few at the base of the Inside the Shelter sequence. The majority are ochre (N=285), but none of these pieces showed clear evidence of having been worked (no grinding or scoring), although one had been flaked. Manganese, which streaks purple when tested on unglazed ceramic, is also present (n=175), and 17 pieces have been flaked but not otherwise worked.
 
-Ochre is common in Middle Stone Age sites in South Africa, and is thought to have been used as a pigment Henshilwood et al. 2009, Marean et al. 2007), art object itself (Mackay & Welz 2008), with some specimens demonstrating engravings, or even an ingredient for binding composite tools (Wadley 2005). While we have an approximation of the timing and functions of ochre in MSA sites, we have only a limited understanding of how ochre specimens from different sites relate to each other. As a preliminary investigation of the regional context of the ochre from VR003, we sampled ochre from seven of the ten VR003 contexts  in which it occurred below III-15, and six of the eight HP or marginal HP (III-17 to III-20) contexts, and combined these with 60 samples of ochre from excavations at the three other archaeological sites as well as geological samples of ochre from four surface outcrops on the landscape surrounding the sites. We used a set of non-destructive methods to record the metric dimensions, Munsell colour and basic visible attributes. Additional preliminary compositional characterisation was undertaken by magnetic susceptibility analysis and X-ray fluorescence analysis. 
+```{r summary_table, echo=FALSE}
+summary_table <- ochre_data %>%
+  filter(grepl("VR3", site)) %>%
+  group_by(sq) %>%
+  dplyr::summarize(n = n(),
+                   mass = sum(weight))
+kable(summary_table)
+```
+
+Ochre is common in Middle Stone Age sites in South Africa, and is thought to have been used as a pigment Henshilwood et al. 2009, Marean et al. 2007), art object itself (Mackay & Welz 2008), with some specimens demonstrating engravings, or even an ingredient for binding composite tools (Wadley 2005). While we have an approximation of the timing and functions of ochre in MSA sites, we have only a limited understanding of how ochre specimens from different sites relate to each other. As a preliminary investigation of the regional context of the ochre from VR003, we sampled ochre from seven of the ten VR003 contexts in which it occurred below III-15, and six of the eight HP or marginal HP (III-17 to III-20) contexts, and combined these with 60 samples of ochre from excavations at the three other archaeological sites as well as geological samples of ochre from four surface outcrops on the landscape surrounding the sites. We used a set of non-destructive methods to record the metric dimensions, Munsell colour and basic visible attributes. Additional preliminary compositional characterisation was undertaken by magnetic susceptibility analysis and X-ray fluorescence analysis. 
 
 ```{r, massfig, echo=FALSE, anchor='massfig', fig.cap="Plot of ochre specimen mass"}
 # kable(ochre %>%
@@ -62,6 +71,7 @@ Ochre is common in Middle Stone Age sites in South Africa, and is thought to hav
 ochre_mass(ochre_data)
 
 ```
+
 
 ```{r, bayesfig, echo=FALSE, anchor='bayesfig', message=FALSE, fig.cap="Bayesian Two Sample t-test: weight by context", cache=TRUE}
 

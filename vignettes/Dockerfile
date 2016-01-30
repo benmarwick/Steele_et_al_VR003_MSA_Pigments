@@ -6,6 +6,8 @@ MAINTAINER Ben Marwick <benmarwick@gmail.com>
 
 # install some packages that not in the base image, these have to be manually identified from my package's Description -> Imports list
 RUN apt-get update \
+  && add-apt-repository -y "ppa:marutter/rrutter" \
+	&& add-apt-repository -y "ppa:marutter/c2d4u" \
   && apt-get install -y r-cran-Hmisc  r-cran-cluster r-cran-Bolstad2 r-cran-rjags \
   # install a few packages from GitHub for the most recent versions (or if they're not on CRAN)
   && installGithub.r --deps TRUE \

@@ -593,6 +593,7 @@ ggplot(ochre_data, aes(x=site, y=weight, colour=context)) +
   geom_boxplot() +
   theme_minimal() +
   ylab("Mass (g)")
+  ggsave("figures/ochre_mass.png",width = par("din")[1]*1.1, height = par("din")[2]/2*1.1)
 }
 
 

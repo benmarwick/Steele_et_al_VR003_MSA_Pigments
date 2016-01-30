@@ -68,7 +68,7 @@ Ochre is common in Middle Stone Age sites in South Africa, and is thought to hav
 #             width = mean(width, na.rm = TRUE), 
 #             thickness = mean(thickness, na.rm = TRUE)))
 
-ochre_mass(ochre_data)
+ochre_mass(ochre_data) 
 
 ```
 

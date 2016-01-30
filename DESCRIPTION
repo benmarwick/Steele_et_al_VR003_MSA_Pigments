@@ -1,11 +1,13 @@
 Package: SteeleVR003MSAPigments
-Title: Package documenting the analysis of pigments excavated from Middle Stone Age sites as described in Steele et al.
+Title: Package documenting the analysis of pigments excavated from Middle Stone
+    Age sites as described in Steele et al.
 Version: 0.1
 Authors@R: "Ben Marwick  <benmarwick@gmail.com> [aut, cre]"
 Description: Contains data and code to reproduce the analysis in Steele et al.
 URL: https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments
 BugReports: https://github.com/benmarwick/Steele_et_al_VR003_MSA_Pigments/issues
-Depends: R (>= 3.1.2)
+Depends:
+    R (>= 3.1.2)
 License: MIT
 LazyData: true
 Imports:
@@ -22,5 +24,7 @@ Imports:
     scales,
     stringr,
     rjags
-Suggests: knitr
+Suggests:
+    knitr
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1

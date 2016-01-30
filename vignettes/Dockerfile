@@ -6,7 +6,7 @@ MAINTAINER Ben Marwick <benmarwick@gmail.com>
 
 # install some packages that not in the base image, these have to be manually identified from my package's Description -> Imports list
 RUN apt-get update \
-  && apt-get install software-properties-common
+  && apt-get install software-properties-common -y \
   && add-apt-repository -y "ppa:marutter/rrutter" \
 	&& add-apt-repository -y "ppa:marutter/c2d4u" \
   && apt-get install -y r-cran-Hmisc  r-cran-cluster r-cran-Bolstad2 r-cran-rjags \
